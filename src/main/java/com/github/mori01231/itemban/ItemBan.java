@@ -1,7 +1,7 @@
 package com.github.mori01231.itemban;
 
 import com.github.mori01231.itemban.CommandExecutor.ItemBanCommand;
-import com.github.mori01231.itemban.Listener.InventoryClickEvent;
+import com.github.mori01231.itemban.Listener.InventoryEventListener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,7 +20,7 @@ public final class ItemBan extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getLogger().info("LifeCore has been enabled.");
+        getLogger().info("ItemBan has been enabled.");
         this.getCommand("itemban").setExecutor(new ItemBanCommand());
 
 
@@ -33,12 +33,13 @@ public final class ItemBan extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        getLogger().info("ItemBan has been disabled.");
     }
 
     public void registerEvents(){
 
         PluginManager pm = getServer().getPluginManager();
 
-        pm.registerEvents(new InventoryClickEvent(this),  this);
+        pm.registerEvents(new InventoryEventListener(this),  this);
     }
 }
