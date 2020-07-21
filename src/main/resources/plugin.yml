@@ -1,0 +1,7 @@
+name: ItemBan
+version: @version@
+main: com.github.mori01231.itemban.ItemBan
+api-version: 1.15
+prefix: [ItemBan]
+authors: [Mori01231]
+description: Bans items from existence
