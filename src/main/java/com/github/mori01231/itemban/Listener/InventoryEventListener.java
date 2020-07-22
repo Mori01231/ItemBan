@@ -59,7 +59,7 @@ public class InventoryEventListener implements Listener {
         }catch (Exception e){
         }
 
-        // Delete Armor Item
+        // Delete Armor Items
         try{
             for (ItemStack item: event.getPlayer().getInventory().getArmorContents()) {
                 try{

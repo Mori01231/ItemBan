@@ -1,0 +1,9 @@
+#ItemBan config file
+
+BannedItems:
+  All:
+    - "§aTest Item"
+  OffHand:
+    - "§1テスト§2オフハンドアイテム"
+  Armor:
+    - "§aテスト§b防具"
