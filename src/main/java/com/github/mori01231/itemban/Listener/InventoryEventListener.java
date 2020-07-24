@@ -42,7 +42,6 @@ public class InventoryEventListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onInventoryCloseEvent(InventoryCloseEvent event) {
-        Inventory inv = event.getInventory();
         String playerName = event.getPlayer().getName();
 
         ItemStack OffHandItem = event.getPlayer().getInventory().getItemInOffHand();
