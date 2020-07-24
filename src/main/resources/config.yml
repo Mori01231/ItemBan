@@ -7,3 +7,11 @@ BannedItems:
     - "§1テスト§2オフハンドアイテム"
   Armor:
     - "§aテスト§b防具"
+
+ReplaceItems:
+  All:
+    TestItem: §aTest Item
+  OffHand:
+    TestOffHandItem: §1テスト§2オフハンドアイテム
+  Armor:
+    TestArmorItem: §aテスト§b防具

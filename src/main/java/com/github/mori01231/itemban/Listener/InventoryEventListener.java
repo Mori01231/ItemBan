@@ -28,6 +28,7 @@ public class InventoryEventListener implements Listener {
         Inventory inv = event.getInventory();
         String playerName = event.getPlayer().getName();
 
+        // Delete any item
         for (ItemStack item: inv.getContents()) {
             try{
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
