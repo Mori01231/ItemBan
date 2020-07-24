@@ -9,6 +9,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -25,6 +26,23 @@ public class InventoryEventListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL)
     public void onInventoryOpenEvent(InventoryOpenEvent event) {
         Inventory inv = event.getInventory();
+        String playerName = event.getPlayer().getName();
+
+        for (ItemStack item: inv.getContents()) {
+            try{
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+                    if(item.getItemMeta().getDisplayName().equals(line)){
+                        item.setAmount(0);
+                        Log("&3" + playerName + "の所持する" + line + "が削除されました。");
+                    }
+                }
+            }catch (Exception e){
+            }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onPlayerItemHeldEvent(PlayerItemHeldEvent event) {
         String playerName = event.getPlayer().getName();
 
         for (ItemStack item: inv.getContents()) {
@@ -73,7 +91,6 @@ public class InventoryEventListener implements Listener {
             }
         }catch (Exception e){
         }
-
     }
 
     public void Log(String message){
