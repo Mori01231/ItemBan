@@ -35,7 +35,7 @@ public class InventoryEventListener implements Listener {
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
                         item.setAmount(0);
-                        Log("&3" + playerName + "の所持する" + line + "が削除されました。");
+                        Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                     }
                 }
             }catch (Exception e){
@@ -48,7 +48,7 @@ public class InventoryEventListener implements Listener {
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
                         item.setAmount(0);
-                        Log("&3" + playerName + "の所持する" + line + "が削除されました。");
+                        Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                     }
                 }
             }catch (Exception e){
@@ -67,7 +67,7 @@ public class InventoryEventListener implements Listener {
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
                         item.setAmount(0);
-                        Log("&3" + playerName + "の所持する" + line + "が削除されました。");
+                        Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                     }
                 }
             }catch (Exception e){
@@ -80,7 +80,7 @@ public class InventoryEventListener implements Listener {
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
                         item.setAmount(0);
-                        Log("&3" + playerName + "の所持する" + line + "が削除されました。");
+                        Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                     }
                 }
             }catch (Exception e){
@@ -98,7 +98,7 @@ public class InventoryEventListener implements Listener {
             for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.MainHand")) {
                 if(mainHandItem.getItemMeta().getDisplayName().equals(line)){
                     mainHandItem.setAmount(0);
-                    Log("&3" + playerName + "の所持する" + line + "が削除されました。");
+                    Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                 }
             }
         }catch (Exception e){ }
@@ -115,7 +115,7 @@ public class InventoryEventListener implements Listener {
             for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.OffHand")) {
                 if(OffHandItem.getItemMeta().getDisplayName().equals(line)){
                     OffHandItem.setAmount(0);
-                    Log("&3" + playerName + "の所持するオフハンドアイテム：" + line + "が削除されました。");
+                    Log("&3" + playerName + "の所持するオフハンドアイテム：" + line + "&3が削除されました。");
                 }
             }
         }catch (Exception e){
@@ -128,7 +128,7 @@ public class InventoryEventListener implements Listener {
                     for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.Armor")) {
                         if(item.getItemMeta().getDisplayName().equals(line)){
                             item.setAmount(0);
-                            Log("&3" + playerName + "の所持する防具：" + line + "が削除されました。");
+                            Log("&3" + playerName + "の所持する防具：" + line + "&3が削除されました。");
                         }
                     }
                 }catch (Exception e){
