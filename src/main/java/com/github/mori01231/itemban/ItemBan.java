@@ -21,9 +21,7 @@ public final class ItemBan extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getLogger().info("ItemBan has been enabled.");
-        this.getCommand("itemban").setExecutor(new ItemBanCommand());
-
-
+        this.getCommand("itembanadd").setExecutor(new ItemBanCommand());
 
         this.saveDefaultConfig();
 

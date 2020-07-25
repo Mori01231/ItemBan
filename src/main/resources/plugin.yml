@@ -5,3 +5,19 @@ api-version: 1.15
 prefix: [ItemBan]
 authors: [Mori01231]
 description: Bans items from existence
+
+commands:
+  itembanadd:
+    description: BANされたアイテムとしてアイテムを追加する。
+    aliases: [iba, ibadd]
+    permission: itemban.add
+    usage: /itembanadd で手に持っているアイテムをBANアイテムとして追加できます。
+
+permissions:
+  itemban.*:
+    description: Gives access to all ItemBan commands
+    children:
+      itemban.add: true
+  itemban.add:
+    description: BANされたアイテムとしてアイテムを追加する。
+    default: false
