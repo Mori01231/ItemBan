@@ -10,8 +10,8 @@ BannedItems:
 
 ReplaceItems:
   All:
-    TestItem: §aTest Item
+    §aTest Item: §aTest Item2
   OffHand:
-    TestOffHandItem: §1テスト§2オフハンドアイテム
+    §1テスト§2オフハンドアイテム: §1テスト§2オフハンドアイテム2
   Armor:
-    TestArmorItem: §aテスト§b防具
+    §aテスト§b防具: §aテスト§b防具2
