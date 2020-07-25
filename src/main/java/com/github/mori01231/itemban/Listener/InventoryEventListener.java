@@ -7,6 +7,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
@@ -43,6 +44,38 @@ public class InventoryEventListener implements Listener {
 
         // Delete any item from player inventory
         for (ItemStack item: event.getPlayer().getInventory().getContents()) {
+            try{
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+                    if(item.getItemMeta().getDisplayName().equals(line)){
+                        item.setAmount(0);
+                        Log("&3" + playerName + "の所持する" + line + "が削除されました。");
+                    }
+                }
+            }catch (Exception e){
+            }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onInventoryClickEvent(InventoryClickEvent event) {
+        // Get player name
+        String playerName = event.getWhoClicked().getName();
+
+        // Delete any item from event inventory
+        for (ItemStack item: event.getClickedInventory().getContents()) {
+            try{
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+                    if(item.getItemMeta().getDisplayName().equals(line)){
+                        item.setAmount(0);
+                        Log("&3" + playerName + "の所持する" + line + "が削除されました。");
+                    }
+                }
+            }catch (Exception e){
+            }
+        }
+
+        // Delete any item from player inventory
+        for (ItemStack item: event.getWhoClicked().getInventory().getContents()) {
             try{
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
