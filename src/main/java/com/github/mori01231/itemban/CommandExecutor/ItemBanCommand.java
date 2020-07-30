@@ -1,21 +1,29 @@
 package com.github.mori01231.itemban.CommandExecutor;
 
 import com.github.mori01231.itemban.ItemBan;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import static org.bukkit.Bukkit.getLogger;
+
 import java.util.List;
 
 
 public class ItemBanCommand implements CommandExecutor {
+
+    public Player player;
+    public Boolean isConsole;
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player){
+            isConsole = false;
 
             // Get the player
-            Player player = (Player) sender;
+            player = (Player) sender;
 
             // Get the display name of item in player's main hand
             String mainHandItemDisplayName = player.getInventory().getItemInMainHand().getItemMeta().getDisplayName();
@@ -29,13 +37,18 @@ public class ItemBanCommand implements CommandExecutor {
             // Apply the edited list to config
             ItemBan.getInstance().getConfig().set("BannedItems.All", BannedItems);
         }else{
-            FeedBack("コンソールからの実行はできません。");
+            isConsole = true;
+            FeedBack("&cコンソールからの実行はできません。");
         }
 
         return true;
     }
 
     public void FeedBack(String message){
-        // print message to player
+        if(isConsole){
+            getLogger().info(ChatColor.translateAlternateColorCodes('&',message));
+        }else{
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&',message));
+        }
     }
 }
