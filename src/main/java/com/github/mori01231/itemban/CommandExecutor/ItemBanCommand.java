@@ -53,6 +53,7 @@ public class ItemBanCommand implements CommandExecutor {
             }
         }
 
+        FeedBack("&c引数が多すぎます。");
         return true;
     }
 
