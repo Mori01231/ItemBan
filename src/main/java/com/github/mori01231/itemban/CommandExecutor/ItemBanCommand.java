@@ -14,19 +14,25 @@ import java.util.List;
 
 public class ItemBanCommand implements CommandExecutor {
 
-    public Player player;
-    public Boolean isConsole;
+    private Player player;
+    private Boolean isConsole;
+    private String mainHandItemDisplayName;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player){
-            isConsole = false;
 
-            // Get the player
-            player = (Player) sender;
+        if (sender instanceof Player) {
+            isConsole = false;
+            player = (Player) sender; // Get the player
 
             // Get the display name of item in player's main hand
-            String mainHandItemDisplayName = player.getInventory().getItemInMainHand().getItemMeta().getDisplayName();
+            mainHandItemDisplayName = player.getInventory().getItemInMainHand().getItemMeta().getDisplayName();
+        }else{
+            isConsole = true;
+            FeedBack("&cコンソールからの実行はできません。"); // Send error message
+        }
+
+        if(args.length == 0){
 
             // Get current list from config
             List<String> BannedItems = ItemBan.getInstance().getConfig().getStringList("BannedItems.All");
@@ -36,9 +42,20 @@ public class ItemBanCommand implements CommandExecutor {
 
             // Apply the edited list to config
             ItemBan.getInstance().getConfig().set("BannedItems.All", BannedItems);
-        }else{
-            isConsole = true;
-            FeedBack("&cコンソールからの実行はできません。");
+
+            return true;
+        }
+
+        if(args.length == 1){
+            if(args[0].equalsIgnoreCase("All")){
+
+            }
+            if(args[0].equalsIgnoreCase("OffHand")){
+
+            }
+            if(args[0].equalsIgnoreCase("OArmor")){
+
+            }
         }
 
         return true;
