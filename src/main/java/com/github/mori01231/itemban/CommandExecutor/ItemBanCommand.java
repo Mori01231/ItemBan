@@ -49,12 +49,34 @@ public class ItemBanCommand implements CommandExecutor {
         if(args.length == 1){
             if(args[0].equalsIgnoreCase("All")){
 
+                // Get current list from config
+                List<String> BannedItems = ItemBan.getInstance().getConfig().getStringList("BannedItems.All");
+
+                // Append new item to old list
+                BannedItems.add(mainHandItemDisplayName);
+
+                // Apply the edited list to config
+                ItemBan.getInstance().getConfig().set("BannedItems.All", BannedItems);
             }
             if(args[0].equalsIgnoreCase("OffHand")){
+                // Get current list from config
+                List<String> BannedItems = ItemBan.getInstance().getConfig().getStringList("BannedItems.OffHand");
 
+                // Append new item to old list
+                BannedItems.add(mainHandItemDisplayName);
+
+                // Apply the edited list to config
+                ItemBan.getInstance().getConfig().set("BannedItems.OffHand", BannedItems);
             }
-            if(args[0].equalsIgnoreCase("OArmor")){
+            if(args[0].equalsIgnoreCase("Armor")){
+                // Get current list from config
+                List<String> BannedItems = ItemBan.getInstance().getConfig().getStringList("BannedItems.Armor");
 
+                // Append new item to old list
+                BannedItems.add(mainHandItemDisplayName);
+
+                // Apply the edited list to config
+                ItemBan.getInstance().getConfig().set("BannedItems.Armor", BannedItems);
             }
         }
 
