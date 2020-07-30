@@ -5,7 +5,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
@@ -13,16 +12,30 @@ import java.util.List;
 public class ItemBanCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (sender instanceof Player){
 
-        Player player = (Player) sender;
+            // Get the player
+            Player player = (Player) sender;
 
-        ItemStack mainHandItem = player.getInventory().getItemInMainHand();
+            // Get the display name of item in player's main hand
+            String mainHandItemDisplayName = player.getInventory().getItemInMainHand().getItemMeta().getDisplayName();
 
-        List<String> BannedItems = ItemBan.getInstance().getConfig().getStringList("BannedItems.All");
-        BannedItems.add(mainHandItem.getItemMeta().getDisplayName());
+            // Get current list from config
+            List<String> BannedItems = ItemBan.getInstance().getConfig().getStringList("BannedItems.All");
 
-        ItemBan.getInstance().getConfig().set("BannedItems.All", BannedItems);
+            // Append new item to old list
+            BannedItems.add(mainHandItemDisplayName);
+
+            // Apply the edited list to config
+            ItemBan.getInstance().getConfig().set("BannedItems.All", BannedItems);
+        }else{
+            FeedBack("コンソールからの実行はできません。");
+        }
 
         return true;
+    }
+
+    public void FeedBack(String message){
+        // print message to player
     }
 }
