@@ -30,31 +30,26 @@ public class ItemBanCommand implements CommandExecutor {
         }else{
             isConsole = true;
             FeedBack("&cコンソールからの実行はできません。"); // Send error message
+            return true;
         }
 
         if(args.length == 0){
-
-            // Get current list from config
-            List<String> BannedItems = ItemBan.getInstance().getConfig().getStringList("BannedItems.All");
-
-            // Append new item to old list
-            BannedItems.add(mainHandItemDisplayName);
-
-            // Apply the edited list to config
-            ItemBan.getInstance().getConfig().set("BannedItems.All", BannedItems);
-
+            AddItem("All");
             return true;
         }
 
         if(args.length == 1){
             if(args[0].equalsIgnoreCase("All")){
                 AddItem("All");
+                return true;
             }
             if(args[0].equalsIgnoreCase("OffHand")){
                 AddItem("OffHand");
+                return true;
             }
             if(args[0].equalsIgnoreCase("Armor")){
                 AddItem("Armor");
+                return true;
             }
         }
 
