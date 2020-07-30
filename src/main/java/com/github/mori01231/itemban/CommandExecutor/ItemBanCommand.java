@@ -34,21 +34,21 @@ public class ItemBanCommand implements CommandExecutor {
         }
 
         if(args.length == 0){
-            AddItem("All");
+            AddItem("All"); // Adding banned item in All category
             return true;
         }
 
         if(args.length == 1){
             if(args[0].equalsIgnoreCase("All")){
-                AddItem("All");
+                AddItem("All"); // Adding banned item in All category
                 return true;
             }
             if(args[0].equalsIgnoreCase("OffHand")){
-                AddItem("OffHand");
+                AddItem("OffHand"); // Adding banned item in OffHand category
                 return true;
             }
             if(args[0].equalsIgnoreCase("Armor")){
-                AddItem("Armor");
+                AddItem("Armor"); // Adding banned item in Armor category
                 return true;
             }
         }
