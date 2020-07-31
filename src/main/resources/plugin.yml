@@ -26,3 +26,6 @@ permissions:
   itemban.add:
     description: BANされたアイテムとしてアイテムを追加する。
     default: false
+  itemban.replaceadd:
+    description: 置き換えされるアイテムとしてアイテムを追加する。
+    default: false
