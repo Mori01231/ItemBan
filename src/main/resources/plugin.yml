@@ -12,6 +12,11 @@ commands:
     aliases: [iba, ibadd]
     permission: itemban.add
     usage: /itembanadd で手に持っているアイテムをBANアイテムとして追加できます。
+  itemreplaceadd:
+    description: BANされたアイテムとしてアイテムを追加する。
+    aliases: [ira, iradd]
+    permission: itemban.replaceadd
+    usage: /itemreplaceadd で手に持っているアイテムを置き換えアイテムとして追加できます。
 
 permissions:
   itemban.*:
