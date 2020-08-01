@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 public class ItemReplaceCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        return false;
+        return true;
     }
 
     public void ReplaceItem(String ReplaceItem, String ReplacedItem){
