@@ -18,6 +18,19 @@ public class ItemReplaceCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        if (sender instanceof Player) {
+            isConsole = false;
+            player = (Player) sender; // Get the player
+
+            // Get the display name of item in player's main hand
+            mainHandItemDisplayName = player.getInventory().getItemInMainHand().getItemMeta().getDisplayName();
+        }else{
+            isConsole = true;
+            FeedBack("&cコンソールからの実行はできません。"); // Send error message
+            return true;
+        }
+
         return true;
     }
 
