@@ -27,6 +27,8 @@ public class InventoryEventListener implements Listener {
         // Get player name
         String playerName = event.getPlayer().getName();
 
+        ItemStack OffHandItem = event.getPlayer().getInventory().getItemInOffHand();
+
         // Delete any item from event inventory
         for (ItemStack item: event.getInventory().getContents()) {
             try{
@@ -51,6 +53,33 @@ public class InventoryEventListener implements Listener {
                 }
             }catch (Exception e){
             }
+        }
+
+        // Delete OffHand Item
+        try{
+            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.OffHand")) {
+                if(OffHandItem.getItemMeta().getDisplayName().equals(line)){
+                    OffHandItem.setAmount(0);
+                    Log("&3" + playerName + "の所持するオフハンドアイテム：" + line + "&3が削除されました。");
+                }
+            }
+        }catch (Exception e){
+        }
+
+        // Delete Armor Items
+        try{
+            for (ItemStack item: event.getPlayer().getInventory().getArmorContents()) {
+                try{
+                    for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.Armor")) {
+                        if(item.getItemMeta().getDisplayName().equals(line)){
+                            item.setAmount(0);
+                            Log("&3" + playerName + "の所持する防具：" + line + "&3が削除されました。");
+                        }
+                    }
+                }catch (Exception e){
+                }
+            }
+        }catch (Exception e){
         }
     }
 
@@ -100,40 +129,6 @@ public class InventoryEventListener implements Listener {
                 }
             }
         }catch (Exception e){ }
-
-    }
-
-    @EventHandler(priority = EventPriority.NORMAL)
-    public void onInventoryCloseEvent(InventoryCloseEvent event) {
-        String playerName = event.getPlayer().getName();
-        ItemStack OffHandItem = event.getPlayer().getInventory().getItemInOffHand();
-
-        // Delete OffHand Item
-        try{
-            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.OffHand")) {
-                if(OffHandItem.getItemMeta().getDisplayName().equals(line)){
-                    OffHandItem.setAmount(0);
-                    Log("&3" + playerName + "の所持するオフハンドアイテム：" + line + "&3が削除されました。");
-                }
-            }
-        }catch (Exception e){
-        }
-
-        // Delete Armor Items
-        try{
-            for (ItemStack item: event.getPlayer().getInventory().getArmorContents()) {
-                try{
-                    for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.Armor")) {
-                        if(item.getItemMeta().getDisplayName().equals(line)){
-                            item.setAmount(0);
-                            Log("&3" + playerName + "の所持する防具：" + line + "&3が削除されました。");
-                        }
-                    }
-                }catch (Exception e){
-                }
-            }
-        }catch (Exception e){
-        }
     }
 
     public void Log(String message){
