@@ -31,13 +31,34 @@ public class ItemReplaceCommand implements CommandExecutor {
             return true;
         }
 
+        if(args.length == 0){
+            ReplaceItem("All"); // Adding banned item in All category
+            return true;
+        }
+
+        if(args.length == 1){
+            if(args[0].equalsIgnoreCase("All")){
+                ReplaceItem("All"); // Adding banned item in All category
+                return true;
+            }
+            if(args[0].equalsIgnoreCase("OffHand")){
+                ReplaceItem("OffHand"); // Adding banned item in OffHand category
+                return true;
+            }
+            if(args[0].equalsIgnoreCase("Armor")){
+                ReplaceItem("Armor"); // Adding banned item in Armor category
+                return true;
+            }
+        }
+
+        FeedBack("&c引数が多すぎます。");
         return true;
     }
 
-    public void ReplaceItem(String ReplaceItem, String ReplacedItem){
+    public void ReplaceItem(String Category){
 
         // Save replacement item.
-        getInstance().getConfig().set(ReplaceItem, ReplacedItem);
+        //getInstance().getConfig().set(Category.);
     }
 
     public void FeedBack(String message){
