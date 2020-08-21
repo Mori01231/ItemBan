@@ -98,6 +98,18 @@ public class InventoryEventListener implements Listener {
                         Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                     }
                 }
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.OffHand")) {
+                    if(item.getItemMeta().getDisplayName().equals(line)){
+                        item.setAmount(0);
+                        Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
+                    }
+                }
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.MainHand")) {
+                    if(item.getItemMeta().getDisplayName().equals(line)){
+                        item.setAmount(0);
+                        Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
+                    }
+                }
             }catch (Exception e){
             }
         }
@@ -106,6 +118,18 @@ public class InventoryEventListener implements Listener {
         for (ItemStack item: event.getWhoClicked().getInventory().getContents()) {
             try{
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+                    if(item.getItemMeta().getDisplayName().equals(line)){
+                        item.setAmount(0);
+                        Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
+                    }
+                }
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.OffHand")) {
+                    if(item.getItemMeta().getDisplayName().equals(line)){
+                        item.setAmount(0);
+                        Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
+                    }
+                }
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.MainHand")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
                         item.setAmount(0);
                         Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
