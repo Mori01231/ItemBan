@@ -19,6 +19,7 @@ public class ItemReplaceCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
+        /*
         if (sender instanceof Player) {
             isConsole = false;
             player = (Player) sender; // Get the player
@@ -52,7 +53,11 @@ public class ItemReplaceCommand implements CommandExecutor {
         }
 
         FeedBack("&c引数が多すぎます。");
-        return true;
+
+         */
+
+        // Currently disabled
+        return false;
     }
 
     public void ReplaceItem(String Category){
