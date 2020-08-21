@@ -10,6 +10,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
 
 import static org.bukkit.Bukkit.getLogger;
@@ -125,6 +126,22 @@ public class InventoryEventListener implements Listener {
             for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.MainHand")) {
                 if(mainHandItem.getItemMeta().getDisplayName().equals(line)){
                     mainHandItem.setAmount(0);
+                    Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
+                }
+            }
+        }catch (Exception e){ }
+    }
+
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onPlayerSwapHandItemsEvent(PlayerSwapHandItemsEvent event) {
+        String playerName = event.getPlayer().getName();
+        ItemStack offHandItem = event.getOffHandItem();
+
+        // Delete offHand item
+        try{
+            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.OffHand")) {
+                if(offHandItem.getItemMeta().getDisplayName().equals(line)){
+                    offHandItem.setAmount(0);
                     Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                 }
             }
