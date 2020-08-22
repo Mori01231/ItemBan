@@ -13,10 +13,10 @@ BannedItems:
     - "§aテスト§b防具"
 
 
-ReplaceItems:
-  All:
-    §aTest Item: §aTest Item2
-  OffHand:
-    §1テスト§2オフハンドアイテム: §1テスト§2オフハンドアイテム2
-  Armor:
-    §aテスト§b防具: §aテスト§b防具2
+#ReplaceItems:
+#  All:
+#    §aTest Item: §aTest Item2
+#  OffHand:
+#    §1テスト§2オフハンドアイテム: §1テスト§2オフハンドアイテム2
+#  Armor:
+#    §aテスト§b防具: §aテスト§b防具2
