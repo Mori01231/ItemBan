@@ -144,12 +144,19 @@ public class InventoryEventListener implements Listener {
     public void onPlayerItemHeldEvent(PlayerItemHeldEvent event) {
         String playerName = event.getPlayer().getName();
         ItemStack mainHandItem = event.getPlayer().getInventory().getItem(event.getNewSlot());
+        ItemStack offHandItem = event.getPlayer().getInventory().getItem(event.getPreviousSlot());
 
-        // Delete MainHand item
+        // Delete MainHand item and offhand item
         try{
             for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.MainHand")) {
                 if(mainHandItem.getItemMeta().getDisplayName().equals(line)){
                     mainHandItem.setAmount(0);
+                    Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
+                }
+            }
+            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.OffHand")) {
+                if(offHandItem.getItemMeta().getDisplayName().equals(line)){
+                    offHandItem.setAmount(0);
                     Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                 }
             }
