@@ -4,9 +4,14 @@ BannedItems:
   All:
     - "§aTest Item"
   OffHand:
-    - "§1テスト§2オフハンドアイテム"
+    - "§3スピード上昇AEX lv1"
+    - "§3スピード上昇EX lv4"
+    - "§3スピード上昇EX lv3"
+    - "§3スピード上昇EX lv2"
+    - "§3スピード上昇EX lv1"
   Armor:
     - "§aテスト§b防具"
+
 
 ReplaceItems:
   All:
