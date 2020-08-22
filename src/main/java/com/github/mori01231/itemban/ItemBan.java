@@ -23,7 +23,7 @@ public final class ItemBan extends JavaPlugin {
         // Plugin startup logic
         getLogger().info("ItemBan has been enabled.");
         this.getCommand("itembanadd").setExecutor(new ItemBanCommand());
-        this.getCommand("itemreplaceadd").setExecutor(new ItemReplaceCommand());
+        // this.getCommand("itemreplaceadd").setExecutor(new ItemReplaceCommand());
 
         this.saveDefaultConfig();
 
