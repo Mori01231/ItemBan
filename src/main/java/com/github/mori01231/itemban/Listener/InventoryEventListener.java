@@ -28,9 +28,8 @@ public class InventoryEventListener implements Listener {
         // Get player name
         String playerName = event.getPlayer().getName();
 
-        ItemStack OffHandItem = event.getPlayer().getInventory().getItemInOffHand();
 
-        // Delete any item from event inventory
+        // Delete items from event inventory
         for (ItemStack item: event.getInventory().getContents()) {
             try{
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
@@ -43,7 +42,7 @@ public class InventoryEventListener implements Listener {
             }
         }
 
-        // Delete any item from player inventory
+        // Delete items from player inventory
         for (ItemStack item: event.getPlayer().getInventory().getContents()) {
             try{
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
@@ -62,7 +61,7 @@ public class InventoryEventListener implements Listener {
         // Get player name
         String playerName = event.getWhoClicked().getName();
 
-        // Delete any item from event inventory
+        // Delete items from event inventory
         for (ItemStack item: event.getClickedInventory().getContents()) {
             try{
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
@@ -75,7 +74,7 @@ public class InventoryEventListener implements Listener {
             }
         }
 
-        // Delete any item from player inventory
+        // Delete items from player inventory
         for (ItemStack item: event.getWhoClicked().getInventory().getContents()) {
             try{
                 for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
