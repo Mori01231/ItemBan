@@ -51,6 +51,10 @@ public class ItemBanCommand implements CommandExecutor {
                 AddItem("Armor"); // Adding banned item in Armor category
                 return true;
             }
+            if(args[0].equalsIgnoreCase("MainHand")){
+                AddItem("MainHand"); // Adding banned item in Armor category
+                return true;
+            }
         }
 
         FeedBack("&c引数が多すぎます。");
