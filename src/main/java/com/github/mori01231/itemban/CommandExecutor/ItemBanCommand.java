@@ -38,6 +38,7 @@ public class ItemBanCommand implements CommandExecutor {
             return true;
         }
 
+        /*
         if(args.length == 1){
             if(args[0].equalsIgnoreCase("All")){
                 AddItem("All"); // Adding banned item in All category
@@ -55,7 +56,7 @@ public class ItemBanCommand implements CommandExecutor {
                 AddItem("MainHand"); // Adding banned item in Armor category
                 return true;
             }
-        }
+        } */
 
         FeedBack("&c引数が多すぎます。");
         return true;
