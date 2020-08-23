@@ -34,7 +34,7 @@ public class ItemBanCommand implements CommandExecutor {
         }
 
         if(args.length == 0){
-            AddItem("All"); // Adding banned item in All category
+            AddItem("BannedItems"); // Adding banned item in All category
             FeedBack("&3正常に" + mainHandItemDisplayName + "&3が禁止アイテムとして登録されました。"); // Send confirmation message
             return true;
         }
