@@ -72,6 +72,9 @@ public class ItemBanCommand implements CommandExecutor {
 
         // Apply the edited list to config
         ItemBan.getInstance().getConfig().set(path, BannedItems);
+
+        // Save the config
+        ItemBan.getInstance().saveConfig();
     }
 
     public void FeedBack(String message){
