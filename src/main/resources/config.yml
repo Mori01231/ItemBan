@@ -1,8 +1,4 @@
 #ItemBan config file
 
 BannedItems:
-  - "§3スピード上昇AEX lv1"
-  - "§3スピード上昇EX lv4"
-  - "§3スピード上昇EX lv3"
-  - "§3スピード上昇EX lv2"
-  - "§3スピード上昇EX lv1"
+  - "§1Test item"
