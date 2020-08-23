@@ -32,7 +32,7 @@ public class InventoryEventListener implements Listener {
         // Delete items from event inventory
         for (ItemStack item: event.getInventory().getContents()) {
             try{
-                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
                         item.setAmount(0);
                         Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
@@ -45,7 +45,7 @@ public class InventoryEventListener implements Listener {
         // Delete items from player inventory
         for (ItemStack item: event.getPlayer().getInventory().getContents()) {
             try{
-                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
                         item.setAmount(0);
                         Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
@@ -64,7 +64,7 @@ public class InventoryEventListener implements Listener {
         // Delete items from event inventory
         for (ItemStack item: event.getClickedInventory().getContents()) {
             try{
-                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
                         item.setAmount(0);
                         Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
@@ -77,7 +77,7 @@ public class InventoryEventListener implements Listener {
         // Delete items from player inventory
         for (ItemStack item: event.getWhoClicked().getInventory().getContents()) {
             try{
-                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+                for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                     if(item.getItemMeta().getDisplayName().equals(line)){
                         item.setAmount(0);
                         Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
@@ -96,13 +96,13 @@ public class InventoryEventListener implements Listener {
 
         // Delete MainHand item and offhand item
         try{
-            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                 if(mainHandItem.getItemMeta().getDisplayName().equals(line)){
                     mainHandItem.setAmount(0);
                     Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                 }
             }
-            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                 if(offHandItem.getItemMeta().getDisplayName().equals(line)){
                     offHandItem.setAmount(0);
                     Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
@@ -118,7 +118,7 @@ public class InventoryEventListener implements Listener {
 
         // Delete offHand item
         try{
-            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems.All")) {
+            for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                 if(offHandItem.getItemMeta().getDisplayName().equals(line)){
                     offHandItem.setAmount(0);
                     Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
