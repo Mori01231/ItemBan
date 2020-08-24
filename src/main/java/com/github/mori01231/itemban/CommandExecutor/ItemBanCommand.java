@@ -21,26 +21,28 @@ public class ItemBanCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
+        // Check if sender is a player
         if (sender instanceof Player) {
-            isConsole = false;
+            isConsole = false; // sender is player
             player = (Player) sender; // Get the player
 
             // Get the display name of item in player's main hand
             mainHandItemDisplayName = player.getInventory().getItemInMainHand().getItemMeta().getDisplayName();
         }else{
-            isConsole = true;
+            isConsole = true; // sender is console
             FeedBack("&cコンソールからの実行はできません。"); // Send error message
-            return true;
+            return true; // Finish command execution
         }
 
         if(args.length == 0){
             AddItem("BannedItems"); // Adding banned item in All category
             FeedBack("&3正常に" + mainHandItemDisplayName + "&3が禁止アイテムとして登録されました。"); // Send confirmation message
-            return true;
+            return true; // Finish command execution
         }
 
-        FeedBack("&c引数が多すぎます。");
-        return true;
+        // Too many arguments
+        FeedBack("&c引数が多すぎます。"); // Send error message
+        return true; // Finish command execution
     }
 
     public void AddItem(String path){
@@ -58,9 +60,12 @@ public class ItemBanCommand implements CommandExecutor {
     }
 
     public void FeedBack(String message){
+        // Send the feedback to different places depending on who the sender is
         if(isConsole){
+            // send feedback to the console
             getLogger().info(ChatColor.translateAlternateColorCodes('&',message));
         }else{
+            // send feedback to the player
             player.sendMessage(ChatColor.translateAlternateColorCodes('&',message));
         }
     }
