@@ -23,6 +23,8 @@ public class ReloadCommand implements CommandExecutor {
             isConsole = true;
         }
 
+        FeedBack("&3正常にリロードされました。");
+
         return true;
     }
 
