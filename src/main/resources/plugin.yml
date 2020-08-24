@@ -17,15 +17,25 @@ commands:
     aliases: [ira, iradd]
     permission: itemban.replaceadd
     usage: /itemreplaceadd で手に持っているアイテムを置き換えアイテムとして追加できます。
+  itembanreload:
+    description: BANされたアイテムとしてアイテムを追加する。
+    aliases: [ibr, ibreload]
+    permission: itemban.reload
+    usage: /itembanreload でプラグインのconfigをリロードできます。
 
 permissions:
   itemban.*:
     description: Gives access to all ItemBan commands
     children:
       itemban.add: true
+      itemban.replaceadd: true
+      itemban.reload: true
   itemban.add:
     description: BANされたアイテムとしてアイテムを追加する。
     default: false
   itemban.replaceadd:
     description: 置き換えされるアイテムとしてアイテムを追加する。
+    default: false
+  itemban.reload:
+    description: プラグインのconfigをリロードする。
     default: false
