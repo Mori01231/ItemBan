@@ -90,18 +90,19 @@ public class InventoryEventListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerItemHeldEvent(PlayerItemHeldEvent event) {
-        String playerName = event.getPlayer().getName();
-        ItemStack mainHandItem = event.getPlayer().getInventory().getItem(event.getNewSlot());
-        ItemStack offHandItem = event.getPlayer().getInventory().getItem(event.getPreviousSlot());
+        String playerName = event.getPlayer().getName(); // get player name
+        ItemStack mainHandItem = event.getPlayer().getInventory().getItem(event.getNewSlot()); // get main hand item
+        ItemStack offHandItem = event.getPlayer().getInventory().getItem(event.getPreviousSlot()); // get off hand item
 
-        // Delete MainHand item and offhand item
         try{
+            // Delete MainHand item
             for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                 if(mainHandItem.getItemMeta().getDisplayName().equals(line)){
                     mainHandItem.setAmount(0);
                     Log("&3" + playerName + "の所持する" + line + "&3が削除されました。");
                 }
             }
+            // Delete OffHand item
             for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                 if(offHandItem.getItemMeta().getDisplayName().equals(line)){
                     offHandItem.setAmount(0);
@@ -113,11 +114,11 @@ public class InventoryEventListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerSwapHandItemsEvent(PlayerSwapHandItemsEvent event) {
-        String playerName = event.getPlayer().getName();
-        ItemStack offHandItem = event.getOffHandItem();
+        String playerName = event.getPlayer().getName(); // get player name
+        ItemStack offHandItem = event.getOffHandItem(); // get off hand item
 
-        // Delete offHand item
         try{
+            // Delete offHand item
             for (String line : ItemBan.getInstance().getConfig().getStringList("BannedItems")) {
                 if(offHandItem.getItemMeta().getDisplayName().equals(line)){
                     offHandItem.setAmount(0);
@@ -127,6 +128,7 @@ public class InventoryEventListener implements Listener {
         }catch (Exception e){ }
     }
 
+    // log message in console
     public void Log(String message){
         getLogger().info(ChatColor.translateAlternateColorCodes('&',message));
     }
