@@ -40,26 +40,6 @@ public class ItemBanCommand implements CommandExecutor {
             return true;
         }
 
-        /*
-        if(args.length == 1){
-            if(args[0].equalsIgnoreCase("All")){
-                AddItem("All"); // Adding banned item in All category
-                return true;
-            }
-            if(args[0].equalsIgnoreCase("OffHand")){
-                AddItem("OffHand"); // Adding banned item in OffHand category
-                return true;
-            }
-            if(args[0].equalsIgnoreCase("Armor")){
-                AddItem("Armor"); // Adding banned item in Armor category
-                return true;
-            }
-            if(args[0].equalsIgnoreCase("MainHand")){
-                AddItem("MainHand"); // Adding banned item in Armor category
-                return true;
-            }
-        } */
-
         FeedBack("&c引数が多すぎます。");
         return true;
     }
