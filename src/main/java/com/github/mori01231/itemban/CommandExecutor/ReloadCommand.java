@@ -1,5 +1,6 @@
 package com.github.mori01231.itemban.CommandExecutor;
 
+import com.github.mori01231.itemban.ItemBan;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,6 +23,8 @@ public class ReloadCommand implements CommandExecutor {
         }else{
             isConsole = true;
         }
+
+        ItemBan.getInstance().reloadConfig();
 
         FeedBack("&3正常にリロードされました。");
 
