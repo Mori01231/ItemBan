@@ -17,7 +17,7 @@ public class ReloadCommand implements CommandExecutor {
     private Boolean isConsole;
 
     @Override
-    public boolean onCommand(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String label, @Nonnull String[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         // Check if the sender is the console or a player
         if (sender instanceof Player) {
