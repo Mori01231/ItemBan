@@ -54,8 +54,17 @@ public class InventoryEventListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onInventoryClickEvent(InventoryClickEvent event) {
-        // Get player name
-        String playerName = event.getWhoClicked().getName();
+
+        // define playerName
+        String playerName = "";
+
+        try {
+            // Get player name
+            playerName = event.getWhoClicked().getName();
+        }catch(Exception e){
+            Log("&3ItemBanプラグインでクリック時にプレイヤー名の取得に失敗");
+        }
+
 
         // Delete items from event inventory
         for (ItemStack item: event.getClickedInventory().getContents()) {
